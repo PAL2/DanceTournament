@@ -28,6 +28,10 @@ public class ForwardAndBackDancer extends Dancer {
         return integer % 2 == 0;
     }
 
+    private boolean checkFirstNumber(Integer[] sequence) {
+        return !isEven(sequence[0]) || sequence[0] > sequence.length || sequence[0] == 0;
+    }
+
     public int getNumberOfSteps() {
         return numberOfSteps;
     }
