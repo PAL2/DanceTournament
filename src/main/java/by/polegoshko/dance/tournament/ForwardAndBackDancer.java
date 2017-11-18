@@ -1,5 +1,6 @@
 package by.polegoshko.dance.tournament;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ForwardAndBackDancer extends Dancer {
@@ -62,8 +63,8 @@ public class ForwardAndBackDancer extends Dancer {
     }
 
     @Override
-    public int dance(int... sequence) {
-        return 0;
+    public int dance(int... sequence) throws NullPointerException, IllegalArgumentException {
+        return this.dance(Arrays.stream(sequence).boxed().toArray(Integer[]::new));
     }
 
     private boolean isEven(Integer integer) {
