@@ -57,8 +57,8 @@ public class ForwardAndBackDancer extends Dancer {
 
 
     @Override
-    public int dance(List<Integer> list) {
-        return 0;
+    public int dance(List<Integer> list) throws NullPointerException, IllegalArgumentException {
+        return this.dance(list.toArray(new Integer[list.size()]));
     }
 
     @Override
