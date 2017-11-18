@@ -24,6 +24,10 @@ public class ForwardAndBackDancer extends Dancer {
         return 0;
     }
 
+    private boolean isEven(Integer integer) {
+        return integer % 2 == 0;
+    }
+
     public int getNumberOfSteps() {
         return numberOfSteps;
     }
