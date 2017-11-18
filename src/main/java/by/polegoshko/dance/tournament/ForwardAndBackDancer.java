@@ -32,6 +32,26 @@ public class ForwardAndBackDancer extends Dancer {
         return !isEven(sequence[0]) || sequence[0] > sequence.length || sequence[0] == 0;
     }
 
+    private int[] getSumOfEvenAndOddNumbers(Integer[] sequence) {
+        int evenNumbers = 0;
+        int oddNumbers = 0;
+        int[] ints = new int[2];
+        for (Integer integer : sequence) {
+            if (integer < 0) {
+                throw new IllegalArgumentException("The value in the sequence can't be negative");
+            }
+            if (isEven(integer)) {
+                evenNumbers += integer;
+
+            } else {
+                oddNumbers += integer;
+            }
+        }
+        ints[0] = evenNumbers;
+        ints[1] = oddNumbers;
+        return ints;
+    }
+
     public int getNumberOfSteps() {
         return numberOfSteps;
     }
