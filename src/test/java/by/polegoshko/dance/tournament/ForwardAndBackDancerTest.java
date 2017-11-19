@@ -1,5 +1,6 @@
 package by.polegoshko.dance.tournament;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +27,6 @@ public class ForwardAndBackDancerTest {
     @Test
     public void dance2() {
         assertEquals(0, dancer.dance(8));
-
     }
 
     @Test
@@ -69,17 +69,6 @@ public class ForwardAndBackDancerTest {
         assertEquals(24, dancer.dance(2, 4, 6, 8, 8, 6, 4, 2, 1, 2, 5, 2, 1));
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testNullPointerException(){
-        ArrayList<Integer> list = null;
-        dancer.dance(list);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testIllegalArgumentException(){
-        dancer.dance(2, -1, 2);
-    }
-
     @Test
     public void dance11() {
         List<Integer> list = new ArrayList<>(Arrays.asList(2, 0, 7));
@@ -92,7 +81,33 @@ public class ForwardAndBackDancerTest {
         assertEquals(4, dancer.dance(integers));
     }
 
-    @Before
+    @Test(expected = NullPointerException.class)
+    public void testNullPointerException() {
+        ArrayList<Integer> list = null;
+        dancer.dance(list);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNullPointerException2() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(null);
+        list.add(7);
+        dancer.dance(list);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNullPointerException3() {
+        Integer[] integers = {2, null, 7};
+        dancer.dance(integers);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalArgumentException() {
+        dancer.dance(2, -1, 2);
+    }
+
+    @After
     public void destroy() {
         dancer = null;
     }
