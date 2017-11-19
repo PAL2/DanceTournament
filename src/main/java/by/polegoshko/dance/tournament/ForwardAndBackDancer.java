@@ -13,49 +13,11 @@ public class ForwardAndBackDancer extends Dancer {
 
     @Override
     public int dance(Integer[] sequence) throws NullPointerException, IllegalArgumentException {
-        numberOfSteps = 0;
-        int position = 0;
         if (sequence == null) {
             throw new NullPointerException("Sequence can't be null");
         }
-        if (sequence.length >= 50 || sequence.length <= 1) {
-            return 0;
-        }
-        int[] ints = getSumOfEvenAndOddNumbers(sequence);
-        int sumOfEvenNumbers = ints[0];
-        int sumOfOddNumbers = ints[1];
-        int areaSize = sequence.length;
-        if (checkFirstNumber(sequence)) {
-            return numberOfSteps;
-        } else {
-            for (int i = 0; i < sequence.length; i++) {
-                if (sequence[i] != 0) {
-                    if (isEven(sequence[i])) {
-                        if ((areaSize - position) >= sequence[i]) {
-                            position += sequence[i];
-                            sumOfEvenNumbers -= sequence[i];
-                            numberOfSteps += sequence[i];
-                        } else {
-                            numberOfSteps += position;
-                            return numberOfSteps;
-                        }
-                    } else {
-                        if (position >= sequence[i]) {
-                            position -= sequence[i];
-                            sumOfOddNumbers -= sequence[i];
-                            numberOfSteps += sequence[i];
-                        } else {
-                            numberOfSteps += position;
-                            return numberOfSteps;
-                        }
-                    }
-                }
-                if (((position + sumOfEvenNumbers) <= areaSize) && (position - sumOfOddNumbers) >= 0) return -1;
-            }
-        }
-        return numberOfSteps;
+        return this.dance(Arrays.stream(sequence).mapToInt(Integer::intValue).toArray());
     }
-
 
     @Override
     public int dance(List<Integer> list) throws NullPointerException, IllegalArgumentException {
