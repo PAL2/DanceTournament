@@ -95,6 +95,12 @@ public class ForwardAndBackDancer extends Dancer {
         return ints;
     }
 
+    private void checkNumbersNotNegative(int[] sequence) throws IllegalArgumentException {
+        for (int i = 0; i < sequence.length; i++) {
+            if (sequence[i] < 0) throw new IllegalArgumentException("The value in the sequence can't be negative");
+        }
+    }
+
     public int getNumberOfSteps() {
         return numberOfSteps;
     }
