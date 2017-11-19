@@ -21,8 +21,12 @@ public class ForwardAndBackDancer extends Dancer {
 
     @Override
     public int dance(List<Integer> list) throws NullPointerException, IllegalArgumentException {
-        return this.dance(list.toArray(new Integer[list.size()]));
+        if (list == null) {
+            throw new NullPointerException("Sequence can't be null");
+        }
+        return this.dance(list.stream().mapToInt(i -> i).toArray());
     }
+
 
     @Override
     public int dance(int... sequence) throws NullPointerException, IllegalArgumentException {

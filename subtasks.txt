@@ -24,12 +24,12 @@
 
 12. Создать метод checkNumbersNotNegative(int[] sequence) для проверки отсутствия отрицательных чисел.
 
-12. Переделать метод dance(int... sequence). Теперь он будет делать основную работу.
+13. Переделать метод dance(int... sequence). Теперь он будет делать основную работу.
 
-13. Переделать метод dance(Integer[] sequence). Он преобразует Integer[] в int[] и вызывает метод dance(int... sequence).
+14. Переделать метод dance(Integer[] sequence). Он преобразует Integer[] в int[] и вызывает метод dance(int... sequence).
 
-14. Переделать метод dance(List<Integer> list). Он преобразует List<Integer> в int[] и вызывает метод dance(int... sequence).
+15. Переделать метод dance(List<Integer> list). Он преобразует List<Integer> в int[] и вызывает метод dance(int... sequence).
 
-15. Удалить метод getSumOfEvenAndOddNumbers(Integer[] sequence). Он больше не нужен.
+16. Удалить метод getSumOfEvenAndOddNumbers(Integer[] sequence). Он больше не нужен.
 
-16. Добавить еще тесты.
+17. Добавить еще тесты.
